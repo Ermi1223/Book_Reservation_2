@@ -1,0 +1,39 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop  # or any other branches you want to test on push
+  pull_request:
+    branches:
+      - main
+      - develop  # or any other branches you want to test on PR
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Checks out the repository code
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3  # Sets up Node.js environment
+      with:
+        node-version: '14'  # Use the desired Node.js version, e.g., 14 or 16
+    
+    - name: Install dependencies
+      run: |
+        npm install  # Installs the dependencies using npm
+    
+    - name: Run tests
+      run: |
+        npm test  # Runs the test suite (make sure your package.json has a test script defined)
+    
+    - name: Upload test results (optional)
+      if: failure()  # Only uploads if the tests fail
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: ./test-results  # Modify this to the path where your test results are saved, if applicable

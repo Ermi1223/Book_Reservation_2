@@ -4,36 +4,42 @@ on:
   push:
     branches:
       - main
-      - develop  # or any other branches you want to test on push
+      - develop  # Any other branches to test on push
   pull_request:
     branches:
       - main
-      - develop  # or any other branches you want to test on PR
+      - develop  # Branches to test on PR
 
 jobs:
   test:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
-    
+
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Checks out the repository code
-    
+      uses: actions/checkout@v3  # Check out the repository code
+
     - name: Set up Node.js
-      uses: actions/setup-node@v3  # Sets up Node.js environment
+      uses: actions/setup-node@v3  # Set up Node.js environment
       with:
-        node-version: '14'  # Use the desired Node.js version, e.g., 14 or 16
-    
+        node-version: '14'  # Use the desired Node.js version (e.g., 14, 16)
+
     - name: Install dependencies
       run: |
-        npm install  # Installs the dependencies using npm
-    
+        npm ci  # Faster install with clean slate (recommended for CI)
+
     - name: Run tests
       run: |
-        npm test  # Runs the test suite (make sure your package.json has a test script defined)
-    
-    - name: Upload test results (optional)
-      if: failure()  # Only uploads if the tests fail
+        npm test -- --verbose  # Adds verbosity to see detailed test results
+
+    - name: Upload test results
       uses: actions/upload-artifact@v3
       with:
         name: test-results
-        path: ./test-results  # Modify this to the path where your test results are saved, if applicable
+        path: ./test-results  # Modify this to match your Jest test results path
+
+    - name: Upload coverage report (optional)
+      if: always()  # Always uploads, even if tests pass or fail
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report
+        path: ./coverage  # Specify your coverage output path, if any

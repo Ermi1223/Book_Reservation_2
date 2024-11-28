@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="2" failures="1" errors="0" time="2.061">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2024-11-28T11:45:34" time="1.269" tests="1">
+    <testcase classname=" should run a basic test" name=" should run a basic test" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2024-11-28T11:45:34" time="1.75" tests="1">
+    <testcase classname=" renders Admin Dashboard link" name=" renders Admin Dashboard link" time="0.005">
+      <failure>ReferenceError: document is not defined
+    at render (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/@testing-library/react/dist/pure.js:239:5)
+    at Object.&lt;anonymous&gt; (/Users/ermiyasggod/Documents/Book Reseravtion2/src/App.test.js:6:9)
+    at Promise.then.completed (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/utils.js:298:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/utils.js:231:10)
+    at _callCircusTest (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/run.js:316:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/run.js:252:3)
+    at _runTestsForDescribeBlock (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/run.js:126:9)
+    at run (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/run.js:71:3)
+    at runAndTransformResultsToJestFormat (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+    at jestAdapter (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+    at runTestInternal (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-runner/build/runTest.js:367:16)
+    at runTest (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-runner/build/runTest.js:444:34)
+    at Object.worker (/Users/ermiyasggod/Documents/Book Reseravtion2/node_modules/jest-runner/build/testWorker.js:106:12)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

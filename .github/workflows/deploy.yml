@@ -28,9 +28,11 @@ jobs:
         npm install  # Installs the dependencies using npm
     
     - name: Run tests
-      run: npm run test  # Runs the test suite (make sure your package.json has a test script defined)
+      run: |
+        npm test  # Runs the test suite (make sure your package.json has a test script defined)
     
-    - name: Upload Test Results 
+    - name: Upload test results (optional)
+      if: failure()  # Only uploads if the tests fail
       uses: actions/upload-artifact@v3
       with:
         name: test-results

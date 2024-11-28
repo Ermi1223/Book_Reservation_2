@@ -33,6 +33,7 @@
     "eslint": "^8.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "react-dom": "^18.3.1",
     "style-loader": "^4.0.0",
     "util": "^0.12.5",
@@ -48,3 +49,4 @@
   "author": "Your Name",
   "license": "MIT"
 }
+

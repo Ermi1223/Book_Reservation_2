@@ -6,4 +6,17 @@ module.exports = {
     setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
   };
   
+  module.exports = {
+    testEnvironment: "node",
+    reporters: [
+      "default",
+      [
+        "jest-junit",
+        {
+          outputDirectory: "./test-results",
+          outputName: "results.xml",
+        },
+      ],
+    ],
+  };
   
